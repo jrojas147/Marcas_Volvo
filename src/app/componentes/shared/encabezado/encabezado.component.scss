@@ -1,0 +1,37 @@
+@import './../../../../scss/variables';
+@import './../../../../scss/mixins';
+
+.contenedor{
+    display: grid;
+    grid-template-columns: $margenContenidoSmall auto $margenContenido;
+    background-color: white;
+    border-bottom: 2px solid $colorPrimario;
+    @include Asmall(){
+        grid-template-columns: $margenContenidoSmall auto $margenContenidoSmall;
+    }
+    @include smallTablet(){
+        grid-template-columns: $margenContenidoSmall auto $margenContenidoSmall;
+    }
+    .contLogo{
+        text-align: center;
+        padding: 10px 0;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+
+        @include tabletLaptop(){
+            text-align: left;
+        }
+        img:first-child{
+            justify-self: left;   
+        }
+
+        img{
+            align-self: center;
+            justify-self: right;
+            width: 30%;
+            @include tabletLaptop(){
+                width: 30%;
+            }
+        }
+    }
+}
