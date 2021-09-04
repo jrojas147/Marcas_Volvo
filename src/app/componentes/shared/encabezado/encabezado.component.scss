@@ -1,37 +1,81 @@
 @import './../../../../scss/variables';
 @import './../../../../scss/mixins';
 
-.contenedor{
+.contenedor {
+  @include Asmall{
+    background-color: aqua;
+  }
+  @include smallTablet{
+    background-color: coral;
+  }
+  @include tabletLaptop{
+    background-color: cornflowerblue;
+  }
+  @include laptopDesktop{
+    background-color: darksalmon;
+  }
+  @include desktopFull{
+    background-color: greenyellow;
+  }
+  @include full{
+    background-color: lightseagreen;
+  }
+
+
+
+  display: grid;
+  grid-template-columns: $margenContenido auto $margenContenido;
+  border-bottom: 3px solid $colorPrimario;
+ // background-color: $colorCinco;
+  grid-template-columns: 5% auto 5%;
+  // padding: 8px;
+  @include tabletLaptop() {
+
+  }
+  .contLogo {
+    padding: 10px 0;
     display: grid;
-    grid-template-columns: $margenContenidoSmall auto $margenContenido;
-    background-color: white;
-    border-bottom: 2px solid $colorPrimario;
-    @include Asmall(){
-        grid-template-columns: $margenContenidoSmall auto $margenContenidoSmall;
+    grid-template-columns: repeat(2, 50%);
+    @include Asmall() {
+      text-align: center;
     }
-    @include smallTablet(){
-        grid-template-columns: $margenContenidoSmall auto $margenContenidoSmall;
-    }
-    .contLogo{
-        text-align: center;
-        padding: 10px 0;
-        display: grid;
-        grid-template-columns: 1fr 1fr;
 
-        @include tabletLaptop(){
-            text-align: left;
-        }
-        img:first-child{
-            justify-self: left;   
-        }
-
-        img{
-            align-self: center;
-            justify-self: right;
-            width: 30%;
-            @include tabletLaptop(){
-                width: 30%;
-            }
-        }
+    .logo {
+      width: 55px;
+      @include Asmall() {
+        width: 50px;
+      }
     }
+    .santander {
+      width: 120px;
+      align-self: center;
+      justify-self: right;
+      @include Asmall() {
+        width: 110px;
+      }
+    }
+  }
 }
+
+
+// .contenedor{
+//   //Mixin
+//   @include Asmall{
+//       background-color: dodgerblue;
+//   }
+//   @include smallTablet{
+//       background-color: black;
+//   }
+//   @include tabletLaptop{
+//       background-color: lightgreen;
+//   }
+//   @include laptopDesktop{
+//       background-color: lightsalmon;
+//   }
+//   @include desktopFull{
+//       background-color: maroon;
+//   }
+//   @include full{
+//       background-color: orange;
+//   }
+// }

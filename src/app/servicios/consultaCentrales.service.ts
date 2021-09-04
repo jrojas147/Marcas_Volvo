@@ -91,13 +91,13 @@ export class ConsultaCentralesService {
     if (!this.scanParams.roisense && !this.scanParams.idc) {
       this.contactoCentrales.OtrosDatos.ConcesionarioRadicacion = 99;
     }
-
+    debugger;
     const bodyT = {
       UserPass: this.const.userpass
     };
-    
+
     const body = new HttpParams({fromObject: bodyT});
-    
+
 
     return this.http.post(`${this.env.urlA}`, body, this.options)
     .subscribe((resp: any) => {
